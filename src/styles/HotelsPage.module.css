@@ -1,0 +1,113 @@
+/* HotelsPage.module.css */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+.searchContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.searchInputContainer {
+  border: 2px solid #fbbf24;
+  border-radius: 24px;
+  width: 25%;
+  font-size: 1.125rem;
+  padding: 8px 12px;
+  margin-right: 8px;
+}
+
+.searchInput {
+  width: 100%;
+  border: none;
+  outline: none;
+}
+
+.dateSelect {
+  padding: 8px;
+  margin: 0 8px;
+}
+
+.searchButton {
+  font-size: 1.25rem;
+  background-color: #fbbf24;
+  padding: 8px 12px;
+  border-radius: 24px;
+  cursor: pointer;
+  border: none;
+}
+
+.hotelsContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hotelCard {
+  display: flex;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  width: 100%;
+  max-width: 800px;
+  padding-right: 16px;
+  align-items: center;
+}
+
+.hotelImage {
+  width: 33%;
+}
+
+.hotelDetails {
+  padding: 12px 16px;
+  width: 67%;
+}
+
+.hotelName {
+  padding-left: 4px;
+  font-weight: bold;
+  font-size: 1.25rem;
+}
+
+.hotelDescription {
+  margin-bottom: 8px;
+  padding-left: 4px;
+  max-width: 300px;
+}
+
+.hotelLocation {
+  margin-bottom: 8px;
+}
+
+.hotelServices {
+  margin-bottom: 8px;
+  padding-left: 4px;
+}
+
+.hotelRooms {
+  padding-left: 4px;
+}
+
+.hotelActions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 12px 0;
+}
+
+.selectRoomButton {
+  font-size: 1.125rem;
+  background-color: #fbbf24;
+  padding: 8px 12px;
+  border-radius: 24px;
+  cursor: pointer;
+  border: none;
+}
+
+.noHotelsMessage {
+  text-align: center;
+  font-size: 1.25rem;
+}
