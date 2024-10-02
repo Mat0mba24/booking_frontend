@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import Header from "../components/Header";
 import styles from "../styles/BookingsPage.module.css";
@@ -7,6 +8,7 @@ import { Loader } from "../components/Loader";
 const BookingsPage = () => {
   const [bookings, setBookings] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const navigate = useNavigate();
   const BASE_URL = process.env.REACT_APP_API_URL;
 
   useEffect(() => {
@@ -19,13 +21,14 @@ const BookingsPage = () => {
         setBookings(response.data);
       } catch (error) {
         console.error("Ошибка при получении бронирований:", error);
+        if (error.status === 401) navigate("/login");
       } finally {
         setIsLoading(false);
       }
     };
 
     fetchBookings();
-  }, [BASE_URL]);
+  }, [BASE_URL, navigate]);
 
   const cancelBooking = async (bookingId) => {
     setIsLoading(true);
@@ -36,6 +39,7 @@ const BookingsPage = () => {
       setBookings(bookings.filter((booking) => booking.id !== bookingId));
     } catch (error) {
       console.error("Ошибка при отмене бронирования:", error);
+      if (error.status === 401) navigate("/login");
     } finally {
       setIsLoading(false);
     }

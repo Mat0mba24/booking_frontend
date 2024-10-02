@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams, useLocation } from "react-router-dom";
+import { useParams, useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Header from "../components/Header";
 import styles from "../styles/RoomsPage.module.css";
@@ -14,6 +14,7 @@ const RoomsPage = () => {
   const { hotelId } = useParams();
   const locationSearch = useLocation().search;
   const [isLoading, setIsLoading] = useState(false);
+  const navigate = useNavigate();
   const BASE_URL = process.env.REACT_APP_API_URL;
 
   useEffect(() => {
@@ -73,14 +74,13 @@ const RoomsPage = () => {
     };
     setIsLoading(true);
     try {
-      const response = await axios.post(BASE_URL + "/api/bookings", data, {
+      await axios.post(BASE_URL + "/api/bookings", data, {
         withCredentials: true,
       });
-      if (response.status === 200) {
-        console.log("Номер забронирован!");
-      }
+      console.log("Номер забронирован!");
     } catch (error) {
       console.error("Ошибка бронирования номера:", error);
+      if (error.status === 401) navigate("/login");
     } finally {
       setIsLoading(false);
     }
