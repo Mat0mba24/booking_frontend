@@ -33,7 +33,9 @@ const HotelsPage = () => {
       )
         .toISOString()
         .split("T")[0];
-      navigate(`/hotels?date_from=${defaultDateFrom}&date_to=${defaultDateTo}`);
+      navigate(
+        `/hotels/Алтай?date_from=${defaultDateFrom}&date_to=${defaultDateTo}`
+      );
     } else {
       setDateFrom(dateFromQuery);
       setDateTo(dateToQuery);

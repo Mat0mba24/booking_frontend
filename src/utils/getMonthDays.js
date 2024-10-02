@@ -7,7 +7,7 @@ const getMonthDays = () => {
       today.getDate()
     );
   
-    for (let i = 0; i < 365 * 2; i++) {
+    for (let i = 0; i < 60; i++) {
       dates.push({
         date: counter.toISOString().split("T")[0],
         date_formatted: counter.toISOString().split("T")[0],
